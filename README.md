@@ -1,2 +1,2 @@
 # Practice
-Practicing python
+Practicing python for enriching mind
