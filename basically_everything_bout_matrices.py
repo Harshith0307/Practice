@@ -56,25 +56,6 @@ def read_matrix(input_prompt, rows, cols):
       
     return matrix
 
-def matrix_operations(mat1, mat2, opr):
-    result = None
-    if opr == '+':
-        result = add_mat(mat1,mat2,)
-    elif opr == '-':
-        result = sub_mat(mat1,mat2,)
-    elif (opr == 'x') or (opr == 'X'):
-        result = dot_star_mat(mat1, mat2,)
-    elif (opr == '*'):
-        result = mul_mat(mat1, mat2)
-    elif (opr == 'mult'):
-        result = scale_mult(mat1,int(input("Whats the multiplication factor : ")))
-    elif (opr == 'div'):
-        result = scale_div(mat1,int(input("Whats the division factor : ")))
-    else:
-        print("Bro, what even is that?")
-        exit()
-    return result
-
 def scale_div(mat1,factor):
     result = []
     for i in range(0,len(mat1)): # go through each row
@@ -93,16 +74,35 @@ def scale_mult(mat1,factor):
         result.append(new_row) 
     return result
 
-
+def matrix_operations(mat1, mat2, opr):
+    result = None
+    if opr == twin_operand_ops[0]:
+        result = add_mat(mat1,mat2,)
+    elif opr == '-':
+        result = sub_mat(mat1,mat2,)
+    elif (opr == '.*'):
+        result = dot_star_mat(mat1, mat2,)
+    elif (opr == '*'):
+        result = mul_mat(mat1, mat2)
+    elif (opr == 'mult'):
+        result = scale_mult(mat1,int(input("Whats the multiplication factor : ")))
+    elif (opr == 'div'):
+        result = scale_div(mat1,int(input("Whats the division factor : ")))
+    else:
+        print("Bro, what even is that?")
+        exit()
+    return result
 
 mat1 = None
 mat2 = None
 result = None
-opr = '+'
+twin_operand_ops = ['+', '-', '*', ".*"]
+opr = ['mult', 'div']
+
 while True:
-    opr = input("enter operation \n+ = Add\n- = Subtract\nX or x = dot product\n* = product\ndiv for scalar division\nmult for scalar multiplication\nenter 0 to exit\n ")
+    opr = input("enter operation \n+ = Add\n- = Subtract\n.*= dot product\n* = product\ndiv for scalar division\nmult for scalar multiplication\nenter 0 to exit\n ")
     
-    if (opr == "+") or (opr == '-') or (opr == 'x') or (opr == 'X') or (opr == '*'):
+    if opr in twin_operand_ops:
         rows = int(input("How many rows : "))
         columns = int(input("How many collums : "))
         mat1 = read_matrix("enter first matrix for: ", rows, columns)

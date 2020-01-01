@@ -1,4 +1,4 @@
-#read a list of numbers and find the minimum  
+#read a list of numbers and find the maximum  
 def max_array(elements):
     array_length = len(elements)
     max_value = 0

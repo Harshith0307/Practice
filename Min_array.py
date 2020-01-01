@@ -15,10 +15,12 @@ if __name__ == '__main__':
     answer = min_array(elements)
 
     print(answer)
-
+    
+    #Check step
     built_in_answer = min(elements)
 
     if built_in_answer == answer:
         print("Validation success")
     else:
         print("Validation failure")
+
