@@ -97,11 +97,12 @@ mat1 = None
 mat2 = None
 result = None
 twin_operand_ops = ['+', '-', '*', ".*"]
-opr = ['mult', 'div']
+scalar_opr = ['mult', 'div']
 
 while True:
     opr = input("enter operation \n+ = Add\n- = Subtract\n.*= dot product\n* = product\ndiv for scalar division\nmult for scalar multiplication\nenter 0 to exit\n ")
-    
+    if (mat1!=None) or (mat2!=None) or (result!=None):
+        if 
     if opr in twin_operand_ops:
         rows = int(input("How many rows : "))
         columns = int(input("How many collums : "))
@@ -109,7 +110,7 @@ while True:
         mat2 = read_matrix("enter second matrix for: ", rows, columns)
         result = matrix_operations(mat1,mat2,opr)
 
-    elif (opr == 'mult') or (opr == 'div'):
+    elif opr in scalar_opr:
         rows = int(input("How many rows : "))
         columns = int(input("How many collums: "))
         mat1 = read_matrix("enter the matrix for: ", rows, columns)
