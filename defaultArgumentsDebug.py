@@ -17,7 +17,7 @@ class OddStream(object):
         return to_return
 
 def print_from_stream(n, stream=None):
-    if stream is None:
+    if stream is None:       #<----------------- there's your solution
         stream = EvenStream()
     for _ in range(n):
         print(stream.get_next())
